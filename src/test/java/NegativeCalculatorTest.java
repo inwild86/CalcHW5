@@ -6,22 +6,7 @@ import static model.Calculator.min;
 import static org.testng.Assert.assertEquals;
 
 public class NegativeCalculatorTest {
-
-    @DataProvider(parallel = true)
-    public Object[][] negativeData() {
-        return new Object[][] {
-                {"-", "1", "2"},
-                {"+", "q", "3"},
-                {"-", "4", "&"},
-                {"/", "5", "0"},
-                {"w", "6", "-7"},
-                {"*", null, "8"},
-                {"/", "9", ""},
-
-        };
-    }
-
-
+    
     @DataProvider(parallel = true)
     public Object[][] negativeAddData() {
         return new Object[][] {
@@ -47,6 +32,14 @@ public class NegativeCalculatorTest {
         };
     }
 
+    @DataProvider(parallel = true)
+    public Object[][] negativeDivisionData() {
+        return new Object[][] {
+                {"/", "6", "0" },
+
+
+        };
+    }
 
 
    @Test(dataProvider = "negativeAddData", expectedExceptions = CalculatorException.class)
@@ -65,5 +58,8 @@ public class NegativeCalculatorTest {
         Calculator.execute(new String[]{op, num1, num2});
     }
 
-
+    @Test(dataProvider = "negativeDivisionData", expectedExceptions = CalculatorException.class)
+    public void negativeDivisionTest(String op, String num1, String num2) {
+        Calculator.execute(new String[]{op, num1, num2});
+    }
 }
