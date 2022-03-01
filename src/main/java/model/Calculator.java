@@ -6,8 +6,7 @@ public class Calculator {
     public static String min = String.valueOf(Integer.MIN_VALUE);
 
     public static String execute(String[] params) {
-        double num1;
-        double num2;
+        double num1, num2;
         String answer;
         //форматируем строку в число типа Double
         try {
