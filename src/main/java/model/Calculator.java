@@ -61,7 +61,7 @@ public class Calculator {
             throw new CalculatorException("Деление на 0");
         }
         else {
-            return String.format("%.3f", num1 / num2);
+            return String.valueOf( num1 / num2);
         }
     }
 
